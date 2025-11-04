@@ -1,0 +1,72 @@
+
+
+CREATE TABLE tbl_user (
+    uid INT PRIMARY KEY IDENTITY,
+    fullname CHAR(50),
+    email VARCHAR(255),
+    mobile VARCHAR(10),
+    password VARCHAR(80),
+    role INT,
+    password_reset_token VARCHAR(50) NULL,
+    user_img NVARCHAR(MAX) NULL
+);
+
+
+
+
+
+CREATE TABLE AuctionItems (
+    AuctionItemId INT PRIMARY KEY IDENTITY,
+    ProductName NVARCHAR(MAX),
+    ProductDescription NVARCHAR(MAX),
+    FileName NVARCHAR(MAX),
+    ProductPriceInterval INT,
+    MinPrice INT,
+    AuctionStartTime DATETIME,
+    AuctionEndTime DATETIME
+);
+
+
+
+
+CREATE TABLE bider (
+    bider_id INT PRIMARY KEY IDENTITY,
+    uid INT,
+    AuctionItemId INT,
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (uid) REFERENCES tbl_user(uid),
+    FOREIGN KEY (AuctionItemId) REFERENCES AuctionItems(AuctionItemId)
+);
+
+
+
+CREATE TABLE tbl_wallet (
+    wid INT PRIMARY KEY IDENTITY,
+    uid INT,
+    amount DECIMAL(10, 2),
+    block_amount DECIMAL(10, 2),
+    FOREIGN KEY (uid) REFERENCES tbl_user(uid)
+);
+
+
+
+
+CREATE TABLE WinnerReports (
+    AuctionItemId INT PRIMARY KEY,
+    WinningBidder INT,
+    WinningBidAmount DECIMAL(10, 2),
+    Wid INT
+);
+
+
+
+CREATE TABLE tbl_orders (
+    OrderNo INT PRIMARY KEY,
+    Date DATE,
+    CustomerName NVARCHAR(255),
+    EmailAddress NVARCHAR(255),
+    PhoneNumber VARCHAR(10),
+    Product NVARCHAR(255),
+    Amount DECIMAL(18, 2),
+    Status INT
+);

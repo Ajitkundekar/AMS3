@@ -1,0 +1,198 @@
+﻿
+body {
+    scroll-behavior: smooth;
+}
+
+
+    body::-webkit-scrollbar {
+        width: 5px;
+        height: 0.3px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #e1f5f4;
+        border-radius: 6px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: whitesmoke;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background-color: #581c87;
+    }
+
+::selection {
+    background-color: #3e004f;
+    color: whitesmoke;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none !important;
+    color: #6a136c !important;
+    transition: color 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: #813683 !important;
+    }
+
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 10px 10px 0px 0px;
+        background: linear-gradient(180deg, #6b21a81c,#581c8769) !important;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover::before {
+        opacity: 1;
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #4f0351;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+
+    .nav-link.active::after {
+        transform: scaleX(1);
+    }
+
+.active-underline {
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    background-color: #6a136c;
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.nav-link.home-active::before {
+    opacity: 1;
+}
+
+.nav {
+    background: rgba(13, 13, 13, 0.138);
+    backdrop-filter: blur(0px);
+}
+
+
+#toaster {
+    display: none;
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+
+a {
+    text-decoration: none !important;
+}
+
+.dt-input {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+
+    .dt-input:focus {
+        background-color: #f0f0f0;
+        outline: none;
+    }
+
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+
+
+.dataTables_length label {
+    font-weight: normal;
+}
+
+.dataTables_length select {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #b700ff !important;
+    border-color: #c629d0c4 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: none !important;
+    border: none !important;
+}
+
+
+.tooltip {
+    background-color: #4F46E5;
+    color: white;
+}
+
+
+/* The switch - the slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
